@@ -45,8 +45,13 @@ public class PersonTest {
         expectedValue[0] = 0;
         expectedValue[1] = 0;
         List<Person> persons = new ArrayList<>();
+        person = new Person("name", 10, "Female");
         double[] obtainedValue = person.averageAgePerGender(persons);
-        assertEquals(obtainedValue, expectedValue);
+        //Comparamos la media de los hombres
+        assertEquals(obtainedValue[0], expectedValue[0]);
+
+        //Comparamos la media de las mujeres
+        assertEquals(obtainedValue[1], expectedValue[1]);
     }
 
     @Test

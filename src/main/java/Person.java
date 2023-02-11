@@ -47,18 +47,23 @@ public class Person {
      */
     public double[] averageAgePerGender(List<Person> persons){
         double[] result = new double[2];
-        double males = 0, totalAgeMales = 0, females = 0, totalAgeFemales = 0;
-        for(Person person : persons){
-            if(person.gender().equals("Male")){
-                males+=1;
-                totalAgeMales+=person.age();
-            }else{
-                females+=1;
-                totalAgeFemales+=person.age();
+        if(persons.size() == 0){
+            result[0] = 0;
+            result[1] = 0;
+        }else{
+            double males = 0, totalAgeMales = 0, females = 0, totalAgeFemales = 0;
+            for(Person person : persons){
+                if(person.gender().equals("Male")){
+                    males+=1;
+                    totalAgeMales+=person.age();
+                }else{
+                    females+=1;
+                    totalAgeFemales+=person.age();
+                }
             }
+            result[0] = totalAgeMales / males;
+            result[1] = totalAgeFemales / females;
         }
-        result[0] = totalAgeMales / males;
-        result[1] = totalAgeFemales / females;
         return result;
     }
 }
