@@ -80,4 +80,27 @@ public class PersonTest {
         //Comparamos la media de las mujeres
         assertEquals(obtainedValue[1], expectedValue[1]);
     }
+
+    @Test
+    void averageOfAListWithOneGender(){
+        double[] expectedValue = new double[2];
+        expectedValue[0] = 30;
+        expectedValue[1] = 0;
+        List<Person> persons = new ArrayList<>();
+        Person person1 = new Person("Person1", 20, "Male");
+        Person person2 = new Person("Person2", 50, "Male");
+        Person person3 = new Person("Person3", 10, "Male");
+        Person person4 = new Person("Person4", 40, "Male");
+        persons.add(person1);
+        persons.add(person2);
+        persons.add(person3);
+        persons.add(person4);
+        double[] obtainedValue = person1.averageAgePerGender(persons);
+
+        //Comparamos la media de los hombres
+        assertEquals(obtainedValue[0], expectedValue[0]);
+
+        //Comparamos la media de las mujeres
+        assertEquals(obtainedValue[1], expectedValue[1]);
+    }
 }
