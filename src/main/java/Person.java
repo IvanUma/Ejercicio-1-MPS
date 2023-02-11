@@ -25,7 +25,9 @@ public class Person {
             throw new IncorrectPersonException("La edad no puede ser negativa");
         }else if(gender.compareToIgnoreCase("Female") != 0 && gender.compareToIgnoreCase("Male") != 0){
             throw new IncorrectPersonException("Genero incorrecto");
-        }else {
+        }else if(age > 150){
+            throw new IncorrectPersonException("Edad demasiado alta");
+        } else{
             this.name = name;
             this.age = age;
             this.gender = gender;

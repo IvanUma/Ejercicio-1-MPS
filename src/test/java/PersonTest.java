@@ -14,6 +14,10 @@ public class PersonTest {
     }
 
     @Test
+    void personWithExcesiveAge(){
+        assertThrows(IncorrectPersonException.class, () -> new Person("name", 200, "Male"));
+    }
+    @Test
     void personWithIncorrectGender(){
         assertThrows(IncorrectPersonException.class, () -> new Person("name", 10, "IncorrectGender"));
     }
