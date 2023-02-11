@@ -21,9 +21,15 @@ public class Person {
      */
 
     public Person(String name, int age, String gender){
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
+        if(age < 0){
+            throw new IncorrectPersonException("La edad no puede ser negativa");
+        }else if(gender.compareToIgnoreCase("Female") != 0 && gender.compareToIgnoreCase("Male") != 0){
+            throw new IncorrectPersonException("Genero incorrecto");
+        }else {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
     }
 
     public String name(){
